@@ -1,13 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { X, Download, Briefcase, Award } from "lucide-react";
 
 export default function Experience() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const certificatePath = "/assets/certificates/techsaksham-certificate.jpeg";
+  const shouldReduceMotion = useReducedMotion();
+  const certificatePath = "/assets/certificate/techsaksham-certificate.jpeg";
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -35,10 +36,10 @@ export default function Experience() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center mb-16 text-center">
             <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
+              initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-5xl font-bold mb-4"
+              className="text-3xl md:text-5xl font-bold mb-4 select-none"
             >
               Internship <span className="text-accent">Experience</span>
             </motion.h2>
@@ -53,10 +54,10 @@ export default function Experience() {
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center glass p-8 md:p-12 rounded-3xl border-white/5 hover:border-accent/20 transition-all duration-500">
             {/* Left Side - 60% */}
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
+              initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 0.5 }}
               className="w-full lg:w-[60%] flex flex-col"
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 mb-6 self-start">
@@ -64,15 +65,15 @@ export default function Experience() {
                 <span className="text-xs font-bold text-accent uppercase tracking-widest">AI Intern</span>
               </div>
               
-              <h3 className="text-3xl font-bold mb-2 text-foreground">
+              <h3 className="text-3xl font-bold mb-2 text-foreground select-none">
                 Edunet Foundation <span className="text-foreground/60 text-xl font-medium block mt-1">(TechSaksham Program)</span>
               </h3>
               
-              <p className="text-accent text-sm font-bold tracking-wider mb-6">
+              <p className="text-accent text-sm font-bold tracking-wider mb-6 select-none">
                 Feb 2025 &ndash; Mar 2025
               </p>
 
-              <p className="text-lg text-foreground/70 mb-8 leading-relaxed">
+              <p className="text-lg text-foreground/90 mb-8 leading-snug">
                 Completed an AI internship under the TechSaksham initiative supported by Microsoft, SAP, and AICTE, gaining practical experience in Machine Learning, Artificial Intelligence, and real-world AI applications.
               </p>
 
@@ -80,11 +81,11 @@ export default function Experience() {
                 {supportTags.map((tag, index) => (
                   <motion.span 
                     key={index}
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.2 + (index * 0.1), duration: 0.3 }}
-                    className="text-xs font-semibold px-3 py-1.5 rounded-md glass border-white/10 text-foreground/80 hover:text-accent hover:border-accent/30 transition-colors cursor-default"
+                    transition={{ delay: shouldReduceMotion ? 0 : 0.1 + (index * 0.04), duration: 0.2 }}
+                    className="text-xs font-semibold px-3 py-1.5 rounded-md glass border-white/10 text-foreground/80 hover:text-accent hover:border-accent/30 transition-all motion-safe:hover:scale-105 cursor-default"
                   >
                     {tag}
                   </motion.span>
@@ -94,17 +95,17 @@ export default function Experience() {
 
             {/* Right Side - 40% */}
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
+              initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: shouldReduceMotion ? 0 : 0.15 }}
               className="w-full lg:w-[40%] flex justify-center lg:justify-end"
             >
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="group relative flex flex-col items-center justify-center gap-4 p-10 w-full max-w-sm rounded-2xl glass border-white/10 hover:border-accent/40 transition-all duration-300 hover:scale-105 overflow-hidden"
+                className="group relative flex flex-col items-center justify-center gap-4 p-10 w-full max-w-sm rounded-2xl glass border-white/10 hover:border-accent/40 transition-all duration-300 motion-safe:hover:scale-105 overflow-hidden"
               >
-                <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 <Award className="w-16 h-16 text-accent/80 group-hover:text-accent transition-colors" />
                 <span className="text-xl font-bold text-foreground group-hover:text-accent transition-colors">
                   Certificate

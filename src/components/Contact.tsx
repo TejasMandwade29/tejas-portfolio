@@ -1,10 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Mail, MessageSquare, ArrowUpRight } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { Mail, ArrowUpRight } from "lucide-react";
 import { Github, Linkedin } from "@/components/Icons";
 
 export default function Contact() {
+  const shouldReduceMotion = useReducedMotion();
   const socialLinks = [
     {
       name: "GitHub",
@@ -23,26 +24,26 @@ export default function Contact() {
   return (
     <footer id="contact" className="py-24 px-6 border-t border-white/5 relative overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] -z-10" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] -z-10 animate-pulse duration-[8000ms] pointer-events-none" />
       
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Let's build something <span className="text-accent">exceptional</span>.</h2>
-            <p className="text-foreground/60 text-lg mb-8 max-w-md">
-              Available for collaborations on AI/ML projects, Agentic Systems, or any Python-based innovation.
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 select-none">Let&apos;s build something <span className="text-accent">exceptional</span>.</h2>
+            <p className="text-foreground/80 text-lg mb-8 max-w-md leading-snug">
+              Available for Software Engineer, Backend Developer and AI Engineer opportunities.
             </p>
             
             <a 
               href="mailto:mandawadeteju@gmail.com" 
               className="inline-flex items-center gap-4 group"
             >
-              <div className="p-4 rounded-2xl bg-accent text-accent-foreground transition-transform group-hover:scale-110">
+              <div className="p-4 rounded-2xl bg-accent text-accent-foreground transition-transform motion-safe:group-hover:scale-105">
                 <Mail className="w-6 h-6" />
               </div>
               <div>
@@ -55,10 +56,10 @@ export default function Contact() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: shouldReduceMotion ? 0 : 0.15 }}
             className="flex flex-col justify-end gap-6"
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -67,7 +68,7 @@ export default function Contact() {
                   key={index}
                   href={link.url}
                   target="_blank"
-                  className="glass p-6 rounded-2xl border-white/5 hover:border-accent/20 transition-all group flex items-center justify-between"
+                  className="glass p-6 rounded-2xl border-white/5 hover:border-accent/20 transition-all group flex items-center justify-between motion-safe:hover:scale-[1.02]"
                 >
                   <div className="flex items-center gap-4">
                     <div className="p-3 rounded-xl bg-white/5 text-foreground/80 group-hover:text-accent group-hover:bg-accent/10 transition-colors">

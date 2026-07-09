@@ -1,20 +1,24 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "#" },
-  { name: "Projects", href: "#projects" },
   { name: "About", href: "#about" },
+  { name: "Leadership", href: "#leadership" },
+  { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
+  { name: "Certifications", href: "#certifications" },
+  { name: "Experience", href: "#experience" },
   { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -57,10 +61,10 @@ export default function Navbar() {
             <motion.a
               key={index}
               href={link.href}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="text-sm font-medium text-foreground/60 hover:text-accent transition-colors"
+              initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -10 }}
+              animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.03, duration: 0.2 }}
+              className="relative text-sm font-medium text-foreground/60 hover:text-foreground transition-colors py-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-accent after:transition-all after:duration-300"
             >
               {link.name}
             </motion.a>
