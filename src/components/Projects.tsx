@@ -80,7 +80,7 @@ const projects = [
       }
     ],
     github: "https://github.com/TejasMandwade29/HireMind-AI-Recruiter",
-    live: "https://youtu.be/sBnu7uGHmk8"
+    live: "https://hiremind-ai-recruiter-mgsfrpwq46m6jibkj7bs6v.streamlit.app/"
   },
   {
     badge: "Agentic AI",
