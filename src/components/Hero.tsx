@@ -88,26 +88,14 @@ export default function Hero() {
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 motion-reduce:group-hover:translate-x-0" />
             </a>
             
-            <div className="flex items-center gap-1 glass p-1 rounded-xl border-white/10">
-              <a 
-                href="/assets/Tejas%20Mandwade%20resume.pdf" 
-                target="_blank"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-white/5 transition-colors"
-              >
-                <FileText className="w-4 h-4 text-accent" />
-                Resume (PDF)
-              </a>
-              <span className="w-px h-6 bg-white/10" />
-              <a 
-                href="/assets/Tejas%20Mandwade%20resume.docx" 
-                download
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold text-foreground/60 hover:text-accent transition-colors"
-                title="Download Word Format"
-              >
-                <Download className="w-3.5 h-3.5" />
-                Word
-              </a>
-            </div>
+            <a 
+              href="/assets/Tejas%20Mandwade%20resume_v1.pdf" 
+              target="_blank"
+              className="inline-flex items-center gap-2 glass px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] hover:bg-white/10 motion-reduce:hover:scale-100"
+            >
+              <FileText className="w-5 h-5 text-accent" />
+              Resume (PDF)
+            </a>
           </motion.div>
 
           {/* Social Links */}
