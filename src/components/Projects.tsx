@@ -34,11 +34,11 @@ const projects = [
       },
       {
         path: "/assets/vitalflow-screenshots/dashboard page.png",
-        caption: "History & Logs - Secure SQLite-backed log dashboard displaying past clinical intake records."
+        caption: "Clinical Analysis Dashboard - Interactive dashboard displaying AI-powered disease predictions, confidence scores, differential diagnosis, symptom analysis, urgency assessment, and clinical insights."
       },
       {
         path: "/assets/vitalflow-screenshots/page 2.png",
-        caption: "Visual Diagnosis - Document analysis using Llama 3 Vision API to process diagnostic reports."
+        caption: "Clinical Assessment Dashboard - Complete patient assessment using Dynamic Symptom Recommendation, voice input, medical image analysis, AI-powered disease prediction, and automated medical report generation."
       }
     ],
     github: "https://github.com/TejasMandwade29/VitalFlow",
