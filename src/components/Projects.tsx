@@ -60,11 +60,11 @@ const projects = [
     images: [
       {
         path: "/assets/hiremind-screenshots/main_page.png",
-        caption: "Recruitment Hub - Recruiter landing page to upload roles and view shortlists."
+        caption: "Recruiter Dashboard - End-to-end candidate screening, semantic ranking, and AI-powered shortlist management."
       },
       {
         path: "/assets/hiremind-screenshots/compare_hub.png",
-        caption: "Candidate Comparison - Detail pane comparing score breakdown side-by-side."
+        caption: "Candidate Comparison - Compare candidates with detailed side-by-side score breakdowns."
       },
       {
         path: "/assets/hiremind-screenshots/AI Recruiter Verdict.png",
